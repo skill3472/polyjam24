@@ -43,7 +43,14 @@ public class PlayerController : MonoBehaviour
         {
             hits[i] = Physics2D.Raycast(raycastPositions[i].position, -Vector2.up);
             if(Vector2.Distance(raycastPositions[i].position, hits[i].point) < groundDetectionThreshold)
+            {
+                if(hits[i].collider.gameObject.CompareTag("Enemy"))
+                {
+                   hits[i].collider.gameObject.GetComponent<EnemyDeath>().Die();
+                   rb.AddForce(Vector2.up * (jumpForce/1.5f));
+                }
                 return true;
+            }
         }
         return false;
     }
