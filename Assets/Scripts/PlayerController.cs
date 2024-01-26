@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public Transform[] raycastPositions;
     public float groundDetectionThreshold;
+    private GameManager gm;
+    private int firstSceneNumer = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,10 @@ public class PlayerController : MonoBehaviour
         if(rb==null)
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
+        }
+        if(gm==null)
+        {
+            gm = GameObject.Find("_GM").GetComponent<GameManager>();
         }
     }
 
@@ -53,5 +60,13 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void Die(){
+        if(gm.difficulty == 0) { // Easy
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else if(gm.difficulty == 1) { // Normal
+            SceneManager.LoadScene(firstSceneNumer);
+        }
     }
 }
