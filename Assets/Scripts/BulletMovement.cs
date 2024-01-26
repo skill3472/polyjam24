@@ -4,8 +4,8 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
 	[Min(0.01f)] public float speed = 5f;
-	public MovementDirection horizontalDirection = MovementDirection.NEGATIVE;
-	public MovementDirection verticalDirection = MovementDirection.NONE;
+	// public MovementDirection horizontalDirection = MovementDirection.NEGATIVE;
+	// public MovementDirection verticalDirection = MovementDirection.NONE;
 
 	private Rigidbody2D rb2D;
 
@@ -13,27 +13,28 @@ public class BulletMovement : MonoBehaviour
 	
 	private void FixedUpdate()
 	{
-		Vector2 movement = speed*Time.fixedDeltaTime*MovementVector();
-		
-		rb2D.MovePosition(rb2D.position + movement);
+		// Vector2 movement = speed*Time.fixedDeltaTime*MovementVector();
+        Quaternion rotation = transform.rotation;
+        Vector3 direction = rotation * Vector3.right;
+        rb2D.velocity = direction * speed;
 	}
 
-	private Vector2 MovementVector()
-	{
-		int x = DirectionValue(horizontalDirection);
-		int y = DirectionValue(verticalDirection);
+	// private Vector2 MovementVector()
+	// {
+	// 	int x = DirectionValue(horizontalDirection);
+	// 	int y = DirectionValue(verticalDirection);
 
-		return new Vector2(x, y);
-	}
+	// 	return new Vector2(x, y);
+	// }
 
-	private int DirectionValue(MovementDirection direction)
-	{
-		return direction switch
-		{
-			MovementDirection.NEGATIVE => -1,
-			MovementDirection.NONE => 0,
-			MovementDirection.POSITIVE => 1,
-			_ => 0,
-		};
-	}
+	// private int DirectionValue(MovementDirection direction)
+	// {
+	// 	return direction switch
+	// 	{
+	// 		MovementDirection.NEGATIVE => -1,
+	// 		MovementDirection.NONE => 0,
+	// 		MovementDirection.POSITIVE => 1,
+	// 		_ => 0,
+	// 	};
+	// }
 }
