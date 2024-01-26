@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.W) && isGrounded()){
             rb.AddForce(Vector2.up * jumpForce);
-            Debug.Log(isGrounded());
         }
     }
 
