@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator pa;
     public float speed;
     public float jumpForce;
     public Transform[] raycastPositions;
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
         {
             gm = GameObject.Find("_GM").GetComponent<GameManager>();
         }
+        if(pa==null)
+        {
+            pa = gameObject.GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -31,16 +36,40 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.D) ){
             rb.velocity = new Vector2(speed, rb.velocity.y);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            if(isGrounded()) {
+                pa.SetBool("isWalking", true);
+                pa.SetBool("isJumping", false);
+            } else {
+                    pa.SetBool("isJumping", true);
+                    pa.SetBool("isWalking", false);
+                }
         } else if(Input.GetKey(KeyCode.A) ){
             rb.velocity = new Vector2(-speed, rb.velocity.y);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            if(isGrounded()) {
+                    pa.SetBool("isWalking", true);
+                    pa.SetBool("isJumping", false);
+            } else {
+                pa.SetBool("isJumping", true);
+                pa.SetBool("isWalking", false);
+            }
         } else if(isGrounded()){
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
+            pa.SetBool("isJumping", false);
+            pa.SetBool("isWalking", false);
         } else {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            pa.SetBool("isJumping", true);
+            pa.SetBool("isJumping", false);
         }
         if(Input.GetKeyDown(KeyCode.W) && isGrounded()){
             rb.AddForce(Vector2.up * jumpForce);
+            pa.SetBool("isJumping", true);
         }
+
+        if(!isGrounded())
+            pa.SetBool("isJumping", true);
     }
 
     bool isGrounded()
