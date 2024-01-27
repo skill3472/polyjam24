@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueLine> dialogueLines;
     private int currentLine;
     public bool dialogueAutostart;
+    private string currentDialogueText;
 
     void Start()
     {
@@ -22,8 +23,9 @@ public class DialogueManager : MonoBehaviour
     }
 
     void ShowDialogue(DialogueLine dialogue){
-        dialogueText.text = dialogue.text;
         characterName.text = dialogue.name;
+        currentDialogueText = dialogue.text;
+        StartCoroutine(WriteSlowly());
     }
 
     public void ShowNextLine(){
@@ -36,5 +38,14 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue(){
         dialogueBox.gameObject.SetActive(false);
+    }
+
+    IEnumerator WriteSlowly(){
+        dialogueText.text = "";
+        foreach(char c in currentDialogueText)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }
