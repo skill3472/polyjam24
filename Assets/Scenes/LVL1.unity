@@ -542,7 +542,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NextLevel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 37441234284463581, guid: 5b6a6bd63c0412647b915e7d144a3936, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

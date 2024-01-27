@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Transform[] raycastPositions;
     public float groundDetectionThreshold;
     private GameManager gm;
+    private AudioManager am;
     private int firstSceneNumer = 1;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         {
             pa = gameObject.GetComponent<Animator>();
         }
+        am = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(speed, rb.velocity.y);
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             if(isGrounded()) {
+                if(!pa.GetBool("isWalking"))
+                        am.Play("Footstep");
                 pa.SetBool("isWalking", true);
                 pa.SetBool("isJumping", false);
             } else {
@@ -48,6 +52,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             if(isGrounded()) {
+                    if(!pa.GetBool("isWalking"))
+                        am.Play("Footstep");
                     pa.SetBool("isWalking", true);
                     pa.SetBool("isJumping", false);
             } else {
@@ -92,6 +98,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Die(){
+        am.Play("GameOver");
         if(gm.difficulty == 0) { // Easy
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else if(gm.difficulty == 1) { // Normal

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+	private AudioManager am;
+
+	void Start() => am = FindObjectOfType<AudioManager>();
 	public int Health
 	{
 		get
@@ -19,6 +22,9 @@ public class EntityHealth : MonoBehaviour
 		if(health <= 0)
 		{
 			Die();
+			am.Play("BossKill");
+		} else{
+			am.Play("BossHit");
 		}
 	}
 

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 720896954502492996}
   - component: {fileID: 1910871485952070039}
-  - component: {fileID: 37441234284463581}
   m_Layer: 0
   m_Name: NextLevelTrigger
   m_TagString: NextLevel
@@ -78,15 +77,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10.16654}
   m_EdgeRadius: 0
---- !u!114 &37441234284463581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980550875303250041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6ce94c8d79138459376f0f52f24858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
