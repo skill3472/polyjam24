@@ -1625,7 +1625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320338253755203543, guid: 009440b76038a4743884ae25831a057d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1320338253755203543, guid: 009440b76038a4743884ae25831a057d, type: 3}
       propertyPath: m_TagString
@@ -1679,6 +1679,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5204281095612285506, guid: 009440b76038a4743884ae25831a057d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204281095612285506, guid: 009440b76038a4743884ae25831a057d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8526071068341125637, guid: 009440b76038a4743884ae25831a057d, type: 3}
       propertyPath: playerPosition
       value: 
@@ -1686,8 +1694,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1320338253755203543, guid: 009440b76038a4743884ae25831a057d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4939975020177996988}
   m_SourcePrefab: {fileID: 100100000, guid: 009440b76038a4743884ae25831a057d, type: 3}
+--- !u!1 &4939975020177996987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1320338253755203543, guid: 009440b76038a4743884ae25831a057d, type: 3}
+  m_PrefabInstance: {fileID: 4939975020177996986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4939975020177996988
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939975020177996987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c16ef352312a99a4a91fb3d6d46a3afd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
