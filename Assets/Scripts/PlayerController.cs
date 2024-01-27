@@ -98,4 +98,10 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(firstSceneNumer);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.gameObject.CompareTag("NextLevel")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        }
+    }
 }

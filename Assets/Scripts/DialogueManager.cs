@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue(){
         dialogueBox.gameObject.SetActive(false);
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+            SceneManager.LoadScene(2);
     }
 
     IEnumerator WriteSlowly(){
