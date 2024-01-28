@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 	[Min(0.01f)] public float speed = 2f;
 	public float minY, maxY;
 
-    void Start() => target = GameObject.Find("Player");
+   // void Start() => target = GameObject.Find("Player");
 
 	private void LateUpdate()
 	{

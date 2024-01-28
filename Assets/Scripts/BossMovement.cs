@@ -18,9 +18,6 @@ public class BossMovement : MonoBehaviour
 
 	public IEnumerator OnAwakening()
 	{
-		// lock the player
-		// play sound
-		
 		GoUp();
 
 		yield return new WaitForSeconds(awakeActionsDelay);
@@ -28,9 +25,6 @@ public class BossMovement : MonoBehaviour
 		GoDown();
 
 		yield return new WaitForSeconds(awakeActionsDelay);
-
-		// enable components
-		// unlock the player
 
 		if(TryGetComponent(out BossPhaseController bpc))
 		{

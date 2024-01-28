@@ -10,6 +10,8 @@ public class BossPhaseController : MonoBehaviour
 
 	public void StartExecutingActions() => StartCoroutine(nameof(ExecuteActions));
 
+	public bool IsVulnerable() => currentPhase == BossPhase.VULNERABILITY;
+
 	public void SetState(BossPhase newPhase)
 	{
 		currentPhase = newPhase;

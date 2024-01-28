@@ -136,3 +136,21 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: BossShoot
+    clip: {fileID: 8300000, guid: bfdca31eb201f65488574033db4b14f8, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: RobotJump
+    clip: {fileID: 8300000, guid: 6a42d61471ec61b46b2fcc492f3c1b92, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
